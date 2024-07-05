@@ -91,7 +91,7 @@ export default function TaskPopup({ refetch, onClose, task }: TaskPopupProps) {
         const taskData = {
             title: newTask,
             description: description,
-            dueDate: combinedDueDate,
+            dueDate: combinedDueDate?.toISOString(),
             isDone: false,
         };
 

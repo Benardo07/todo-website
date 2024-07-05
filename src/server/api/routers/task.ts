@@ -8,7 +8,15 @@ export const taskRouter = createTRPCRouter({
       z.object({
         title: z.string().min(1),
         description: z.string().optional(),
-        dueDate: z.date().optional(),
+        dueDate: z.string().optional().refine((data) => {
+          // Check if the string can be parsed into a valid date
+          return !data || !isNaN(Date.parse(data));
+        }, {
+          message: "Invalid date format, expected YYYY-MM-DDTHH:MM:SS.SSSZ",
+        }).transform((data) => {
+          // Transform the string to a date only if it's not undefined
+          return data ? new Date(data) : undefined;
+        }),
         isDone: z.boolean().optional(),
       })
     )
@@ -74,7 +82,15 @@ export const taskRouter = createTRPCRouter({
         id: z.string().min(1),
         title: z.string().min(1),
         description: z.string().optional(),
-        dueDate: z.date().optional(),
+        dueDate: z.string().optional().refine((data) => {
+          // Check if the string can be parsed into a valid date
+          return !data || !isNaN(Date.parse(data));
+        }, {
+          message: "Invalid date format, expected YYYY-MM-DDTHH:MM:SS.SSSZ",
+        }).transform((data) => {
+          // Transform the string to a date only if it's not undefined
+          return data ? new Date(data) : undefined;
+        }),
     }))
     .mutation(async ({ ctx, input }) => {
         const { id, title, description, dueDate } = input;
