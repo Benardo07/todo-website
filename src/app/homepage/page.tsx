@@ -20,7 +20,7 @@ const [currentTask, setCurrentTask] = useState<Task | null>(null);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      refetch();
+      void refetch();
     }, 30000);  // Refresh every minute
 
     return () => clearInterval(intervalId);  // Clean up the interval on component unmount
@@ -28,7 +28,7 @@ const [currentTask, setCurrentTask] = useState<Task | null>(null);
   const handleMarkDone = async (id : string) => {
     try {
       await markTaskDone.mutateAsync({ id });
-      refetch();
+      void refetch();
       toast.success('Task marked as done!');
     } catch (error) {
       toast.error('Failed to mark task as done.');
@@ -38,7 +38,7 @@ const [currentTask, setCurrentTask] = useState<Task | null>(null);
   const handleDelete = async (id : string) => {
     try {
       await deleteTask.mutateAsync({ id });
-      refetch();
+      void refetch();
       toast.success('Task deleted!');
     } catch (error) {
       toast.error('Failed to delete task.');
@@ -62,7 +62,7 @@ const [currentTask, setCurrentTask] = useState<Task | null>(null);
   const filteredTasks = tasks?.filter(task => {
     const searchMatch = task.title.toLowerCase().includes(searchQuery.toLowerCase());
     return filter === 'all' ? searchMatch : searchMatch && (filter === 'done' ? task.isDone : !task.isDone);
-  }) || [];
+  }) ?? [];
 
   return (
     <main className="flex min-h-screen w-3/4 max-w-[1000px] flex-col items-center justify-center text-white">

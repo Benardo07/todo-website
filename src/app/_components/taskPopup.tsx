@@ -82,7 +82,7 @@ export default function TaskPopup({ refetch, onClose, task }: TaskPopupProps) {
     const addTask = api.task.add.useMutation({
         onSuccess: () => {
           toast.success('New Task Added!');
-          refetch().then(() => {}, () => {});
+          refetch();
           onClose(false);
         },
         onError:() =>  {
@@ -93,7 +93,7 @@ export default function TaskPopup({ refetch, onClose, task }: TaskPopupProps) {
     const updateTask = api.task.updateTask.useMutation({
         onSuccess: () => {
             toast.success('Task Updated');
-            refetch().then(() => {}, () => {});
+            refetch();
             onClose(false);
           },
           onError:() =>  {
