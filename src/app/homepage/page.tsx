@@ -92,12 +92,12 @@ export default function Home() {
     setOpenForm(true);
   }
 
-  const handleMarkDoneClick = (task: Task) => {
+  const handleMarkDoneClick = async (task: Task) => {
     if (task.isDone) {
       setCurrentTask(task);
       setShowConfirmModal(true);  // Show confirmation modal
     } else {
-      handleMarkDone(task.id);  // Directly mark as done if not already done
+      await handleMarkDone(task.id);  // Directly mark as done if not already done
     }
   };
 
@@ -143,7 +143,7 @@ export default function Home() {
         ) : (
           <ul className="mb-4 w-full h-full">
             {filteredTasks.map((task, index) => (
-              <li key={index} className={`p-4 rounded mb-2 gap-5 flex flex-col lg:flex-row lg:justify-between lg:items-center w-full ${task.isDone ? 'bg-white bg-opacity-5' : 'bg-white bg-opacity-20'} ${isPastDue(task) ? 'border-red-500 border-2 shadow-inner shadow-red-500/50' : ''}`}>
+              <li key={index} className={`p-4 rounded-2xl mb-2 gap-5 flex flex-col lg:flex-row lg:justify-between lg:items-center w-full ${task.isDone ? 'bg-white bg-opacity-5' : 'bg-white bg-opacity-20'} ${isPastDue(task) ? 'border-red-500 border-2 shadow-inner shadow-red-500/50' : ''}`}>
                 <div className={`flex-col gap-2 ${task.isDone ? 'line-through' : ''}`}>
                   <div className="font-bold">{task.title}</div>
                   {task.description && <div className="text-sm">{task.description}</div>}
