@@ -1,29 +1,94 @@
-# Create T3 App
+# Todo List App
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+This Todo List App is a modern, full-stack application built using Next.js, Prisma, and tRPC. It features task management capabilities including add, update, delete, mark as done, mark as undone, search, and real-time loading indicators.
 
-## What's next? How do I make an app with this?
+## Features
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- **Add Tasks**: Create new tasks with due dates and descriptions.
+- **Filter Tasks**: View tasks based on their status (All, Completed, Pending).
+- **Update Tasks**: Edit task details.
+- **Delete Tasks**: Remove tasks from the list.
+- **Mark as Done/Undone**: Toggle tasks between completed and pending.
+- **Search**: Filter tasks by their titles.
+- **Loading Indicators**: Displays a loading state as data is fetched or updated.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Installation
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+Follow these steps to set up and run the project locally:
 
-## Learn More
+### Prerequisites
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+- Node.js
+- PostgreSQL
+- Git
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+### Setup
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+1. **Clone the repository**
 
-## How do I deploy this?
+    ```bash
+    git clone https://github.com/your-username/todo-list-app.git
+    cd todo-list-app
+    ```
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+2. **Install dependencies**
+
+    ```bash
+    npm install
+    ```
+
+3. **Set up the database**
+
+    Create a `.env` file in the root directory and update the `DATABASE_URL` with your PostgreSQL credentials:
+
+    ```plaintext
+    DATABASE_URL="postgresql://user:password@localhost:5432/mydatabase"
+    ```
+
+4. **Generate Prisma Client**
+
+    ```bash
+    npm run postinstall
+    ```
+
+5. **Migrate the database**
+
+    ```bash
+    npm run db:generate
+    ```
+
+6. **Start the development server**
+
+    ```bash
+    npm run dev
+    ```
+
+## Deployment
+
+To deploy this project on Vercel, follow these steps:
+
+1. **Sign up/Login to Vercel** ([Vercel](https://vercel.com))
+2. **Import your GitHub repository**
+3. **Configure your project settings** to set environment variables such as `DATABASE_URL`.
+4. **Deploy your project** by pushing changes to your branch or merging a pull request.
+
+## Tech Stack
+
+- **Frontend**: Next.js
+- **Backend**: tRPC for type-safe API routes
+- **Database**: Prisma with PostgreSQL
+- **Deployment**: Vercel
+
+## Repository
+
+You can find the project repository here:
+[GitHub Repository](https://github.com/Benardo07/SEA-salon)
+
+## Live Demo
+
+Check out the live demo of the application here:
+[Visit Todo List App](https://sea-salon-plum.vercel.app/)
+
+---
+
+Made by [Benardo](https://github.com/Benardo07)
