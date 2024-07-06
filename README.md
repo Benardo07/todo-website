@@ -27,8 +27,8 @@ Follow these steps to set up and run the project locally:
 1. **Clone the repository**
 
     ```bash
-    git clone https://github.com/your-username/todo-list-app.git
-    cd todo-list-app
+    git clone https://github.com/Benardo07/todo-website.git
+    cd todo-website
     ```
 
 2. **Install dependencies**
@@ -40,7 +40,7 @@ Follow these steps to set up and run the project locally:
 3. **Set up the database**
 
     Create a `.env` file in the root directory and update the `DATABASE_URL` with your PostgreSQL credentials:
-
+    (example)
     ```plaintext
     DATABASE_URL="postgresql://user:password@localhost:5432/mydatabase"
     ```
@@ -82,12 +82,12 @@ To deploy this project on Vercel, follow these steps:
 ## Repository
 
 You can find the project repository here:
-[GitHub Repository](https://github.com/Benardo07/SEA-salon)
+[GitHub Repository](https://github.com/Benardo07/todo-website)
 
 ## Live Demo
 
 Check out the live demo of the application here:
-[Visit Todo List App](https://sea-salon-plum.vercel.app/)
+[Visit Todo List App](https://todo-website-mu.vercel.app/)
 
 ---
 
