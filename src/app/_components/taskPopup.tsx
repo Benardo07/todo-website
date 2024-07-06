@@ -151,6 +151,7 @@ export default function TaskPopup({ refetch, onClose, task }: TaskPopupProps) {
                                 value={dueDate}
                                 onChange={(e: ChangeEvent<HTMLInputElement>) => setDueDate(e.target.value)}
                             />
+                            {errors.dueDate && <span className="text-red-500 text-sm">{errors.dueDate}</span>}
                         </div>
                         <div className="flex flex-col md:w-1/2 gap-2">
                             <label className="font-bold text-white">Due Time</label>
@@ -160,6 +161,7 @@ export default function TaskPopup({ refetch, onClose, task }: TaskPopupProps) {
                                 value={dueTime}
                                 onChange={(e: ChangeEvent<HTMLInputElement>) => setDueTime(e.target.value)}
                             />
+                            {errors.dueTime && <span className="text-red-500 text-sm">{errors.dueTime}</span>}
                         </div>
                     </div>
                     <div className="flex flex-row gap-10 items-center justify-center">
