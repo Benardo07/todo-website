@@ -5,7 +5,7 @@ This Todo List App is a modern, full-stack application built using Next.js, Pris
 ## Features
 
 - **Add Tasks**: Create new tasks with due dates and descriptions.
-- **Filter Tasks**: View tasks based on their status (All, Completed, Pending).
+- **Filter Tasks**: View tasks based on their status (All, Done, UnDone).
 - **Update Tasks**: Edit task details.
 - **Delete Tasks**: Remove tasks from the list.
 - **Mark as Done/Undone**: Toggle tasks between completed and pending.
