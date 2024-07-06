@@ -76,6 +76,22 @@ export const taskRouter = createTRPCRouter({
       });
       return task; // Also, ensure to return the updated task for client-side confirmation
     }),
+    markUnDone: publicProcedure
+    .input(z.object({
+      id: z.string().min(1),
+    }))
+    .mutation(async ({ ctx, input }) => {
+      const { id } = input;
+      const task = await ctx.db.task.update({
+        where: {
+          id
+        },
+        data: {
+          isDone: false, // Assuming you want to set `isDone` to true to mark it as done
+        },
+      });
+      return task; // Also, ensure to return the updated task for client-side confirmation
+    }),
 
     updateTask: publicProcedure
     .input(z.object({
