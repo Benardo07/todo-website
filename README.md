@@ -87,7 +87,7 @@ You can find the project repository here:
 ## Live Demo
 
 Check out the live demo of the application here:
-[Visit Todo List App](https://todo-website-mu.vercel.app/)
+[Visit Todo List App](https://todo-website-alpha.vercel.app/)
 
 ---
 
